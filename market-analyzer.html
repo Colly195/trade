@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Analyzer - RoyalTraders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-header">
+        <div class="header-left">
+            <svg class="logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.144L20 8.5L12 12.856L4 8.5L12 4.144ZM4 10.5L11 14.5V20.856L4 16.5V10.5ZM13 14.5L20 10.5V16.5L13 20.856V14.5Z"/>
+            </svg>
+            <span class="logo-text">RoyalTraders</span>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-secondary">Log In</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-links-container">
+            <a href="index.html" class="nav-link" data-page="index.html" aria-label="Dashboard"><i class="fa-solid fa-home"></i><span>Dashboard</span></a>
+            <a href="bot-builder.html" class="nav-link" data-page="bot-builder.html" aria-label="Bot Builder"><i class="fa-solid fa-hammer"></i><span>Bot Builder</span></a>
+            <a href="analysis-tool.html" class="nav-link" data-page="analysis-tool.html" aria-label="Analysis Tool"><i class="fa-solid fa-chart-line"></i><span>Analysis Tool</span></a>
+            <a href="batch-trader.html" class="nav-link" data-page="batch-trader.html" aria-label="Batch Trader"><i class="fa-solid fa-layer-group"></i><span>Batch Trader</span></a>
+            <a href="market-analyzer.html" class="nav-link active" data-page="market-analyzer.html" aria-label="Market Analyzer"><i class="fa-solid fa-chart-area"></i><span>Market Analyzer</span></a>
+            <a href="frequency-analysis.html" class="nav-link" data-page="frequency-analysis.html" aria-label="Frequency Analysis"><i class="fa-solid fa-calculator"></i><span>Frequency Analysis</span></a>
+            <a href="digit-tool.html" class="nav-link" data-page="digit-tool.html" aria-label="Digit Tool"><i class="fa-solid fa-fingerprint"></i><span>Digit Tool</span></a>
+            <a href="free-bots.html" class="nav-link" data-page="free-bots.html" aria-label="Free Bots"><i class="fa-solid fa-robot"></i><span>Free Bots</span></a>
+            <a href="copy-trader.html" class="nav-link" data-page="copy-trader.html" aria-label="Copy Trader"><i class="fa-solid fa-copy"></i><span>Copy Trader</span></a>
+            <a href="charts.html" class="nav-link" data-page="charts.html" aria-label="Charts"><i class="fa-solid fa-chart-bar"></i><span>Charts</span></a>
+        </div>
+        <div class="nav-right-actions">
+            <span id="statusTag" class="status-tag">Not Running</span>
+            <button id="runButton" class="btn btn-run"><i class="fa-solid fa-play"></i><span class="btn-text">Run Bot</span></button>
+        </div>
+    </nav>
+
+    <main id="mainContent" class="main-content">
+        <div data-page-content="market-analyzer.html">
+            <section class="section">
+                <h1 class="page-heading">Market Analyzer</h1>
+                <p class="page-subheading">Get a comprehensive overview of current market conditions.</p>
+                <div class="grid-container">
+                    <div class="card summary-card">
+                        <h3>Top Gainers</h3>
+                        <p class="value positive">+5.2%</p>
+                        <span class="sub-text">EUR/USD</span>
+                    </div>
+                    <div class="card summary-card">
+                        <h3>Top Losers</h3>
+                        <p class="value negative">-3.1%</p>
+                        <span class="sub-text">GBP/JPY</span>
+                    </div>
+                    <div class="card summary-card">
+                        <h3>Most Active</h3>
+                        <p class="value">USD/JPY</p>
+                        <span class="sub-text">Volume: 3.2M</span>
+                    </div>
+                </div>
+                <h2 class="section-title mt-2">Market Overview</h2>
+                <div class="chart-area card placeholder">
+                    <p>Placeholder for interactive market chart.</p>
+                    <canvas id="marketChart"></canvas>
+                </div>
+                <h2 class="section-title mt-2">Asset Performance Table</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>% Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EUR/USD</td>
+                                <td>Euro / US Dollar</td>
+                                <td>1.0872</td>
+                                <td class="positive">+0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>GBP/JPY</td>
+                                <td>British Pound / Japanese Yen</td>
+                                <td>180.45</td>
+                                <td class="negative">-0.2%</td>
+                            </tr>
+                            <tr>
+                                <td>USD/JPY</td>
+                                <td>US Dollar / Japanese Yen</td>
+                                <td>148.91</td>
+                                <td class="positive">+0.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="warning-bar">
+        <strong>Disclaimer:</strong> Trading involves risk. All analysis tools and bots are for informational purposes only.
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-left">
+            <span id="dateTime"></span>
+        </div>
+        <div class="footer-right">
+            <button id="settingsToggle" class="footer-btn" aria-label="Settings"><i class="fa-solid fa-cog"></i></button>
+            <button id="darkModeToggle" class="footer-btn" aria-label="Toggle dark/light mode"><i class="fa-solid fa-moon"></i></button>
+            <div class="language-select">
+                <button class="footer-btn" aria-label="Select language"><i class="fa-solid fa-globe"></i></button>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Make sure .htaccess rules apply to root directory
+RewriteBase /
+
+# If a matching PHP file exists, serve it without extension
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)$ $1.php [L]
+
+# If a matching HTML file exists, serve it without extension
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# Redirect requests WITH .php extension to extensionless URL
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Redirect requests WITH .html extension to extensionless URL
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]

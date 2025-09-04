@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Financial Plugin for Candlestick -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.0/dist/chartjs-chart-financial.min.js"></script>
 </head>
 <body>
     <header class="top-header">
@@ -53,8 +57,8 @@
                         <div class="filter-group">
                             <label for="assetChart">Asset:</label>
                             <select id="assetChart">
-                                <option>EUR/USD</option>
-                                <option>GBP/JPY</option>
+                                <option value="EURUSD">EUR/USD</option>
+                                <option value="GBPJPY">GBP/JPY</option>
                             </select>
                         </div>
                         <div class="filter-group">
@@ -66,9 +70,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="chart-area card placeholder">
-                        <p>Placeholder for price chart.</p>
-                        <canvas id="mainChart"></canvas>
+                    <div class="chart-area card">
+                        <canvas id="mainChart" style="width: 100%; height: 400px;"></canvas>
                     </div>
                 </div>
                 <h2 class="section-title mt-2">Historical Prices</h2>
@@ -83,7 +86,7 @@
                                 <th>Close</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="historicalTable">
                             <tr><td>2025-08-30</td><td>1.0870</td><td>1.0895</td><td>1.0865</td><td>1.0872</td></tr>
                             <tr><td>2025-08-29</td><td>1.0855</td><td>1.0875</td><td>1.0850</td><td>1.0870</td></tr>
                             <tr><td>2025-08-28</td><td>1.0860</td><td>1.0865</td><td>1.0840</td><td>1.0855</td></tr>
@@ -112,6 +115,6 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="js/charts.js"></script>
 </body>
 </html>

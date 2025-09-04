@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis Tool - RoyalTraders</title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Financial Plugin for Candlestick -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.0/dist/chartjs-chart-financial.min.js"></script>
 </head>
 <body>
     <header class="top-header">
@@ -54,31 +57,30 @@
                         <div class="filter-group">
                             <label for="assetFilter" class="form-label">Asset:</label>
                             <select id="assetFilter" class="form-control">
-                                <option>EUR/USD</option>
-                                <option>GBP/JPY</option>
-                                <option>USD/JPY</option>
+                                <option value="EURUSD">EUR/USD</option>
+                                <option value="GBPJPY">GBP/JPY</option>
+                                <option value="USDJPY">USD/JPY</option>
                             </select>
                         </div>
                         <div class="filter-group">
                             <label for="dateRangeFilter" class="form-label">Date Range:</label>
                             <select id="dateRangeFilter" class="form-control">
-                                <option>Last 24 hours</option>
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
+                                <option value="24h">Last 24 hours</option>
+                                <option value="7d">Last 7 days</option>
+                                <option value="30d">Last 30 days</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label for="indicatorFilter" class="form-label">Indicators:</label>
-                            <select id="indicatorFilter" class="form-control">
-                                <option>SMA</option>
-                                <option>RSI</option>
-                                <option>MACD</option>
-                            </select>
+                            <label>Indicators:</label>
+                            <div class="indicator-toggles">
+                                <input type="checkbox" id="sma"> <label for="sma">SMA</label>
+                                <input type="checkbox" id="rsi"> <label for="rsi">RSI</label>
+                                <input type="checkbox" id="macd"> <label for="macd">MACD</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="chart-area card placeholder">
-                        <p>Placeholder for interactive chart.</p>
-                        <canvas id="analysisChart"></canvas>
+                    <div class="chart-area card">
+                        <canvas id="analysisChart" style="width: 100%; height: 400px;"></canvas>
                     </div>
                 </div>
                 <h2 class="section-title mt-2">Recent Market Metrics</h2>
@@ -92,7 +94,7 @@
                                 <th>% Change</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="metricsTable">
                             <tr>
                                 <td>EUR/USD</td>
                                 <td>1.0872</td>
@@ -115,7 +117,7 @@
                     </table>
                 </div>
                 <div class="btn-container mt-2">
-                    <button class="btn btn-primary">Export to CSV</button>
+                    <button class="btn btn-primary" id="exportCsv">Export to CSV</button>
                 </div>
             </section>
         </div>
@@ -139,6 +141,6 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="js/analysis-tool-chart.js"></script>
 </body>
 </html>
